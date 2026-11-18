@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080c16" />
+  <meta name="description" content="VOXA Signal Lab: turn public GitHub repository evidence into a transparent, inspectable portfolio card. No fake trust scores, no login required." />
+  <title>VOXA // Signal Lab — Create an Evidence Passport</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080c16'/%3E%3Cpath d='M13 18 31 49 51 18' fill='none' stroke='%2358f0d0' stroke-width='6'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="ambience" aria-hidden="true"><div class="halo h1"></div><div class="halo h2"></div></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="VOXA Signal Lab home"><span class="brand-mark">V</span><span class="brand-name">VOXA<span class="muted-dot">.</span></span><span class="brand-divider"></span><span class="brand-context">SIGNAL LAB</span></a>
+      <div class="top-actions"><span class="online"><span class="online-dot"></span> RESEARCH PROTOTYPE</span><a class="outline-link" href="https://voxa-wine-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Explore VOXA <span aria-hidden="true">↗</span></a></div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-line"></span> AN INTERACTIVE EVIDENCE EXPERIMENT <span class="mono tiny">// 001</span></div>
+        <div class="hero-columns">
+          <div class="hero-copy">
+            <h1>DON'T CLAIM IT.<br /><span>SHOW THE EVIDENCE.</span></h1>
+            <p class="hero-description">Transform your public GitHub activity into a contextual, inspectable <strong>Evidence Passport</strong>. Every signal has a source. Every claim has a limit.</p>
+            <div class="hero-badges"><span>NO SIGN-UP</span><span>PUBLIC DATA ONLY</span><span>EXPORTABLE</span><span>NO BLACK-BOX SCORE</span></div>
+          </div>
+          <div class="radar" aria-hidden="true"><div class="radar-ring outer"></div><div class="radar-ring middle"></div><div class="radar-ring inner"></div><div class="radar-cross x"></div><div class="radar-cross y"></div><div class="radar-core"><span>V</span><small>PROVENANCE<br />FIRST</small></div><div class="radar-point p1"></div><div class="radar-point p2"></div><div class="radar-point p3"></div><div class="radar-scan"></div></div>
+        </div>
+      </section>
+      <section class="console" aria-label="Create an evidence passport">
+        <div class="panel-top"><div class="panel-title"><span class="terminal-icon">&gt;_</span><span>passport-builder.exe</span></div><div class="panel-top-right"><span>GITHUB PUBLIC API</span><span class="console-indicator">●</span></div></div>
+        <div class="console-body">
+          <label class="input-label" for="githubUsername">01 / ENTER YOUR GITHUB IDENTITY</label>
+          <form id="scanForm" class="entry-row"><span class="entry-prefix">github.com/</span><input id="githubUsername" name="username" placeholder="your-username" autocomplete="off" spellcheck="false" maxlength="39" required aria-describedby="scanHelp" /><button id="scanButton" type="submit"><span id="scanButtonText">GENERATE PASSPORT</span><span aria-hidden="true">↗</span></button></form>
+          <div class="input-footer"><span id="scanHelp">Try your own handle, or use <button type="button" id="demoHandle" class="text-button">@munnamihir</button>.</span><span>PUBLIC METADATA ≠ VERIFIED IDENTITY</span></div>
+          <div id="statusPanel" class="status-panel" role="status" aria-live="polite"><span class="status-icon">◎</span><span id="statusText">SYSTEM READY // AWAITING INPUT</span></div>
+        </div>
+      </section>
+      <section id="results" class="results" hidden aria-label="Generated evidence passport">
+        <div class="results-heading"><div><div class="section-eyebrow">SCAN COMPLETE / EVIDENCE INSPECTOR</div><h2>Your public signal. <span>In context.</span></h2></div><span id="lastUpdated" class="results-date"></span></div>
+        <div class="dashboard">
+          <div class="glass identity-card"><div class="card-overline">SUBJECT // PUBLIC GITHUB PROFILE</div><div class="identity-line"><img id="avatar" class="avatar" alt="GitHub profile avatar" src="" /><div><div id="displayName" class="identity-name">—</div><a id="profileLink" href="#" target="_blank" rel="noopener noreferrer" class="identity-handle">— ↗</a></div></div><p class="identity-note">Account metadata is retrieved from GitHub. The person controlling this session has <strong>not</strong> been identity-verified by VOXA.</p><div class="stat-row"><div><strong id="repoCount">—</strong><small>PUBLIC OWNED REPOS<br />IN SAMPLE</small></div><div><strong id="starCount">—</strong><small>STARS ON SAMPLED<br />REPOSITORIES</small></div><div><strong id="langCount">—</strong><small>PRIMARY<br />LANGUAGES</small></div></div></div>
+          <div class="glass breakdown-card"><div class="card-overline">DISTRIBUTION // PRIMARY REPO LANGUAGES</div><div class="chart-flex"><div id="donut" class="donut" role="img" aria-label="Language distribution"><div class="donut-inner"><b id="donutCenter">—</b><small>REPOS</small></div></div><div id="legend" class="legend"></div></div><p class="small-note">One primary-language count per repository, not code-byte proportions or a measure of skill.</p></div>
+          <div class="glass context-card"><div class="card-overline">CONTEXT ENGINE // TRANSPARENT KEYWORDS</div><label class="input-label" for="contextSelect">CHOOSE WHAT TO EXPLORE</label><select id="contextSelect"><option value="all">All public engineering activity</option><option value="security">Security & cryptography</option><option value="ai">AI & automation</option><option value="reliability">Reliability & safety</option><option value="platforms">Systems & infrastructure</option></select><p id="contextDescription" class="context-explanation"></p><div class="context-result"><strong id="contextCount">—</strong><span>REPOS MATCHING THIS CONTEXT<br /><em>Keyword match only — not an ability rating</em></span></div><div class="transparent-tag">RULE-BASED • INSPECTABLE • NOT A TRUST SCORE</div></div>
+          <div class="glass orbit-card"><div class="card-overline">EVIDENCE GRAPH // FOLLOW THE SOURCE</div><div class="orbit-hint">Click a node to open the actual repository.</div><div id="orbitViz" class="orbit-viz"><div class="orbit-grid"></div><div id="orbitNodes"></div><div class="orbit-center">YOU<span>PUBLIC<br />EVIDENCE</span></div></div><p class="small-note">Orbit layout is illustrative. Node positions do not imply social trust, influence or relationships.</p></div>
+        </div>
+        <div class="glass manifest"><div class="manifest-head"><div><div class="card-overline">PROVENANCE / EVIDENCE MANIFEST</div><h3>Inspect what went into your card.</h3></div><span id="sampleNote" class="pill">PUBLIC SOURCE DATA</span></div><div id="repoList" class="repo-list"></div><div class="manifest-end">Every repository link opens on GitHub. Data can change after this scan.</div></div>
+        <div class="glass output-panel"><div><div class="card-overline">OUTPUT / YOUR PORTABLE ARTIFACT</div><h3>Take the evidence with you.</h3><p>Export a stylish SVG passport, copy a link to recreate the scan, or download a transparent machine-readable evidence manifest.</p><div class="output-buttons"><button id="downloadSvg" class="primary-small" type="button">↓ DOWNLOAD CARD .SVG</button><button id="downloadJson" type="button">↓ EVIDENCE .JSON</button><button id="copyLink" type="button">⧉ COPY SHARE LINK</button><button id="copyBadge" type="button">⧉ COPY GITHUB BADGE</button></div><p id="copyStatus" role="status" aria-live="polite" class="small-note"></p></div><div id="cardPreview" class="card-preview" aria-label="Passport SVG preview"></div></div>
+      </section>
+      <section class="ethos"><div class="ethos-icon">✳</div><div><div class="section-eyebrow">WHAT THIS IS — AND ISN'T</div><h2>Evidence is not the same as trust.</h2><p>This is an independent VOXA-inspired demonstration of evidence provenance. It does not authenticate account ownership, validate code quality, issue a signed credential, calculate a VOXA trust state, or represent an official VOXA verification. Real trust judgments require context, policy, signatures, and independent assessment.</p></div></section>
+    </main>
+    <footer><div class="brand foot-brand"><span class="brand-mark">V</span><span class="brand-name">VOXA<span class="muted-dot">.</span></span><span class="brand-context">EVIDENCE → CONTEXT → TRUST</span></div><div>EXPERIMENT BY <a href="https://github.com/munnamihir" target="_blank" rel="noopener noreferrer">MIHIR BOMMISETTY ↗</a><br /><span>Built with plain HTML, CSS, JavaScript and GitHub's public API.</span></div></footer>
+  </div>
+</body>
+</html>
+
