@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07101b" />
+  <meta name="description" content="VOXA Proof Quest is a free four-case evidence investigation game. Learn to distinguish claims, provenance, and contextual trust. No account required." />
+  <title>VOXA // Proof Quest — Investigate the Claim</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2307101b'/%3E%3Cpath d='M12 18 32 49 52 18' fill='none' stroke='%2372efd6' stroke-width='7'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./quest-core.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#play">Skip to game</a>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="VOXA Signal Lab home"><span class="logo-glyph">V</span><span class="brand-word">VOXA<span class="brand-period">.</span></span><span class="brand-break"></span><span class="brand-sub">PROOF QUEST</span></a>
+      <nav class="top-nav" aria-label="Related destinations">
+        <a href="../">← Signal Lab</a>
+        <a href="https://github.com/munnamihir" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="pulse-point"></span> OPERATION: TRACE <span class="minor">// CASE FILES ONLINE</span></div>
+        <h1 id="hero-title">DON'T TRUST THE CLAIM.<br /><em>TRACE THE EVIDENCE.</em></h1>
+        <p>A four-mission investigation into AI performance, release provenance, software security, and contextual trust. Read the artifacts. Make the call. Defend your reasoning.</p>
+        <a class="primary hero-cta" href="#play">BEGIN INVESTIGATION <span aria-hidden="true">↘</span></a>
+        <div class="disclaimer-tag">SIMULATED CASES · NO LOGIN · NO TRUST SCORES</div>
+      </div>
+      <div class="scope-panel" aria-hidden="true">
+        <div class="scope-caption"><span>SCANNER // EVIDENCE GRAPH</span><span class="scope-live">● ONLINE</span></div>
+        <div class="scope-radar">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+          <div class="scope-cross cross-h"></div><div class="scope-cross cross-v"></div>
+          <span class="orbit-node node-a"></span><span class="orbit-node node-b"></span><span class="orbit-node node-c"></span><span class="orbit-node node-d"></span>
+          <div class="scanner-line"></div><div class="scope-center"><strong>V</strong><small>VERIFY<br />THE SOURCE</small></div>
+        </div>
+        <div class="scope-footer"><span>INPUT: ASSERTIONS</span><span>OUTPUT: JUSTIFIED VERDICTS</span></div>
+      </div>
+    </section>
+
+    <div class="metric-strip" aria-label="Game details">
+      <div><span class="metric-value">04</span><span class="metric-label">INVESTIGATIONS</span></div>
+      <div><span class="metric-value">12</span><span class="metric-label">EVIDENCE ARTIFACTS</span></div>
+      <div><span class="metric-value">100</span><span class="metric-label">MAX POINTS</span></div>
+      <div><span class="metric-value mint">LOCAL</span><span class="metric-label">NO ACCOUNT / NO TRACKING</span></div>
+    </div>
+
+    <main id="play" class="game-layout" tabindex="-1">
+      <aside class="side-panel" aria-label="Investigation progress">
+        <div class="aside-header"><div class="smallcaps">INVESTIGATION STATUS</div><span class="progress-code" id="progressCode">01 / 04</span></div>
+        <div class="progress-track" aria-hidden="true"><div id="progressFill"></div></div>
+        <ol id="missionList" class="mission-list"></ol>
+        <div class="score-panel"><span class="smallcaps">FIELD SCORE</span><div class="score-value"><strong id="scoreNumber">000</strong><span>/ 100</span></div><p>Correct verdicts earn 25 points; using a hint reduces that case to 20.</p></div>
+        <details class="mission-rules"><summary>▸ Investigation protocol</summary><p>Open all three evidence artifacts, then select a verdict. Each case is scored on your first submission. Hints are optional. All scenarios are fictional learning exercises.</p></details>
+      </aside>
+
+      <section class="mission-panel" aria-live="off" aria-label="Current case">
+        <div id="gameScreen">
+          <div class="case-meta"><span class="case-pill" id="caseCode">CASE Q-01</span><span id="caseDomain">AI / EVALUATION</span><span id="caseDifficulty">SIGNAL 01</span></div>
+          <div class="mission-heading"><div><div class="smallcaps accent">ACTIVE CASE FILE</div><h2 id="caseTitle">Loading investigation…</h2><p id="caseKicker"></p></div><div class="evidence-stamp" aria-hidden="true">V<br /><span>TRACE</span></div></div>
+          <div class="case-context" id="caseContext"></div>
+          <div class="claim-box"><span class="smallcaps">CLAIM UNDER INVESTIGATION</span><blockquote id="caseClaim"></blockquote></div>
+          <div class="section-head"><div><span class="smallcaps accent">01 // OBSERVE</span><h3>Evidence locker</h3></div><span class="readout" id="evidenceReadout">0 / 3 REVIEWED</span></div>
+          <div class="evidence-grid" id="evidenceGrid"></div>
+          <div class="decision-zone"><div class="section-head"><div><span class="smallcaps accent">02 // DECIDE</span><h3>Your assessment</h3></div></div><p>Does the available evidence support this <strong>specific claim</strong>?</p><fieldset id="verdictOptions"><legend class="sr-only">Choose one verdict</legend></fieldset>
+            <div class="decision-actions"><button class="hint-button" id="hintButton" type="button">⌁ REQUEST HINT <span class="hint-cost">−5 POSSIBLE POINTS</span></button><button class="primary submit-button" id="submitButton" type="button" disabled>SUBMIT VERDICT →</button></div>
+            <p id="hintText" class="hint-text" hidden></p><p id="gateMessage" class="gate-text" aria-live="polite">Read all three evidence artifacts to unlock your verdict.</p>
+          </div>
+          <div id="feedback" class="feedback" tabindex="-1" hidden><div class="smallcaps" id="feedbackLabel"></div><h3 id="feedbackTitle"></h3><p id="feedbackReason"></p><div class="lesson-line"><span>LESSON //</span><p id="feedbackLesson"></p></div><button class="primary next-button" id="nextButton" type="button">NEXT CASE →</button></div>
+        </div>
+        <section class="complete-panel" id="completeScreen" hidden tabindex="-1" aria-labelledby="completeTitle">
+          <div class="completion-symbol" aria-hidden="true">✓</div>
+          <div class="smallcaps accent">INVESTIGATION COMPLETE // ALL CASES REVIEWED</div>
+          <h2 id="completeTitle">CASE FILE CLOSED.</h2>
+          <p id="completeSummary"></p>
+          <div class="result-score"><strong id="finalScore">000</strong><span> / 100</span></div>
+          <div class="rank-label" id="rankLabel"></div><p id="rankDescription"></p>
+          <div class="alias-control"><label for="aliasInput">YOUR DISPLAY NAME <span>(OPTIONAL · LOCAL TO THIS PAGE)</span></label><input id="aliasInput" maxlength="32" autocomplete="off" placeholder="Anonymous Investigator" /></div>
+          <div class="end-actions"><button id="downloadBadge" type="button" class="primary">↓ DOWNLOAD GAME BADGE (SVG)</button><button id="shareResult" type="button" class="secondary">↗ COPY CHALLENGE LINK</button><button id="restartButton" type="button" class="secondary">↺ REPLAY</button></div>
+          <p id="copyStatus" class="copy-status" aria-live="polite"></p>
+          <p class="badge-disclaimer">GAME ACHIEVEMENT ONLY. Not a verified professional credential, identity attestation, VOXA vouch, or objective skill evaluation. Results are not recorded on a leaderboard.</p>
+        </section>
+      </section>
+    </main>
+
+    <section class="ethics-bar"><div class="ethics-icon">✳</div><div><span class="smallcaps accent">THE VOXA PRINCIPLE</span><h2>Evidence ≠ automatic trust.</h2><p>A signature can confirm who signed an assertion. It cannot independently prove the assertion is true. Context, provenance, independent checks, and time are part of any justified decision.</p></div><a href="../" class="secondary signal-link">BUILD YOUR EVIDENCE PASSPORT ↗</a></section>
+    <footer class="footer"><span>VOXA // PROOF QUEST <span class="fade">© 2026 · FICTIONAL SCENARIOS</span></span><span>BUILT BY <a href="https://github.com/munnamihir">MIHIR BOMMISETTY ↗</a></span></footer>
+  </div>
+</body>
+</html>

@@ -9,6 +9,10 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080c16'/%3E%3Cpath d='M13 18 31 49 51 18' fill='none' stroke='%2358f0d0' stroke-width='6'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./styles.css" />
   <script defer src="./app.js"></script>
+<style>
+.proof-quest-promo{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:16px 0 28px;padding:26px 30px;border:1px solid #3e807b;border-radius:14px;background:linear-gradient(112deg,#17333b,#151c35);box-shadow:0 15px 36px rgba(0,0,0,.15)}
+.proof-quest-copy{min-width:0;max-width:700px}.proof-quest-eyebrow{font:700 10px ui-monospace,monospace;letter-spacing:.14em;color:#8be9db}.proof-quest-promo h2{font-size:clamp(23px,3vw,35px);margin:8px 0;color:#f4ffff;line-height:1.2;letter-spacing:-.04em}.proof-quest-promo h2 span{color:#83f0d9}.proof-quest-promo p{max-width:660px;color:#b6ccd5;font-size:13px;line-height:1.7;margin:0 0 13px}.proof-quest-tags{display:flex;gap:8px;flex-wrap:wrap}.proof-quest-tags span{border:1px solid #35666b;border-radius:4px;padding:5px 8px;font:700 9px ui-monospace,monospace;letter-spacing:.07em;color:#a6e8dd}.proof-quest-start{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-width:184px;min-height:48px;padding:13px 19px;border-radius:9px;background:#82efd8;color:#0a2731!important;font:800 12px ui-monospace,monospace;letter-spacing:.05em;text-decoration:none}.proof-quest-start:hover{filter:brightness(1.10)}.proof-quest-start:focus-visible{outline:3px solid white;outline-offset:4px}.proof-quest-start span{margin-left:13px}@media(max-width:720px){.proof-quest-promo{flex-direction:column;align-items:stretch;padding:22px}.proof-quest-start{width:100%}}
+</style>
 </head>
 <body>
   <div class="ambience" aria-hidden="true"><div class="halo h1"></div><div class="halo h2"></div></div>
@@ -29,6 +33,15 @@
           <div class="radar" aria-hidden="true"><div class="radar-ring outer"></div><div class="radar-ring middle"></div><div class="radar-ring inner"></div><div class="radar-cross x"></div><div class="radar-cross y"></div><div class="radar-core"><span>V</span><small>PROVENANCE<br />FIRST</small></div><div class="radar-point p1"></div><div class="radar-point p2"></div><div class="radar-point p3"></div><div class="radar-scan"></div></div>
         </div>
       </section>
+      <section class="proof-quest-promo" aria-labelledby="proofQuestPromoHeading">
+  <div class="proof-quest-copy">
+    <span class="proof-quest-eyebrow">NEW EXPERIMENT // 004 · INTERACTIVE CHALLENGE</span>
+    <h2 id="proofQuestPromoHeading">VOXA <span>PROOF QUEST</span></h2>
+    <p>Can you spot a weak claim? Investigate four fictional cases, inspect twelve evidence artifacts, earn an investigator rank, and download a game achievement card. No signup, no tracking, no pretend trust scores.</p>
+    <div class="proof-quest-tags"><span>4 CASES</span><span>12 CLUES</span><span>100 POINTS</span></div>
+  </div>
+  <a class="proof-quest-start" href="./proof-quest/" aria-label="Play VOXA Proof Quest">PLAY PROOF QUEST <span aria-hidden="true">↗</span></a>
+</section>
       <section class="console" aria-label="Create an evidence passport">
         <div class="panel-top"><div class="panel-title"><span class="terminal-icon">&gt;_</span><span>passport-builder.exe</span></div><div class="panel-top-right"><span>GITHUB PUBLIC API</span><span class="console-indicator">●</span></div></div>
         <div class="console-body">
