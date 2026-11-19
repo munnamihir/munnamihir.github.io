@@ -1,0 +1,30 @@
+name: Crypto Escape checks
+on:
+  pull_request:
+    paths:
+      - 'voxa-studio/crypto-escape/**'
+      - 'test/crypto-core.test.js'
+      - '.github/workflows/crypto-escape.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'voxa-studio/crypto-escape/**'
+      - 'test/crypto-core.test.js'
+      - '.github/workflows/crypto-escape.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: |
+          node --check voxa-studio/crypto-escape/core.js
+          node --check voxa-studio/crypto-escape/app.js
+      - name: Exercise pure game logic
+        run: node --test test/crypto-core.test.js

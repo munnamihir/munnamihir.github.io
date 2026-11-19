@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070e1b" />
+  <meta name="description" content="VOXA Quantum Crypto Escape Room. Solve four fictional cryptography migration puzzles based on real NIST post-quantum standards. No login, no tracking." />
+  <title>VOXA // Quantum Crypto Escape Room</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081321'/%3E%3Cpath d='M12 18 32 50 52 18' stroke='%235ee8db' stroke-width='7' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./core.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#room">Skip to mission</a>
+  <div class="glow glow-a" aria-hidden="true"></div><div class="glow glow-b" aria-hidden="true"></div>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="Return to VOXA Signal Lab"><span class="brand-icon">V</span><span class="brand-word">VOXA<span>.</span></span><span class="divider-mark"></span><span class="brand-sub">CRYPTO ESCAPE</span></a>
+      <nav class="links" aria-label="Related projects"><a href="../">SIGNAL LAB ↗</a><a href="../proof-quest/">PROOF QUEST ↗</a><a href="https://github.com/munnamihir/cryptoscan-pqc" target="_blank" rel="noopener noreferrer">SOURCE PROJECT ↗</a></nav>
+    </header>
+    <div class="eyebrow"><span class="beacon"></span> OPERATION: QUANTUM SHIELD <span class="muted">// FIELD TRAINING SIMULATION — 2026</span></div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="kicker">NEW INTERACTIVE LAB // ESCAPE PROTOCOL 005</div>
+        <h1 id="hero-title">THE FUTURE IS<br><span>RECORDING.</span><br>CAN YOU <i>ESCAPE?</i></h1>
+        <p>A fictional archive is running vulnerable public-key cryptography. You have four decisions to make before the migration window closes. Inspect the evidence. Patch the plan. Unlock the vault.</p>
+        <div class="hero-actions"><a class="primary" href="#room">ENTER THE VAULT <span aria-hidden="true">↘</span></a><span class="micro">4 ROOMS · ~5 MIN · NO LOGIN</span></div>
+      </div>
+      <div class="orbital" aria-label="Decorative encrypted vault visualization" role="img">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+        <div class="cross cross-a"></div><div class="cross cross-b"></div>
+        <div class="rotor"></div><span class="node node1"></span><span class="node node2"></span><span class="node node3"></span>
+        <div class="vault-core"><div class="vault-lock">⌘</div><span>Q-VAULT</span><small>ENCRYPTION<br>IN TRANSITION</small></div>
+        <div class="orbital-head">QUANTUM THREAT MODEL</div><div class="orbital-foot">◈ PROVENANCE &gt; CLAIMS</div>
+      </div>
+    </section>
+    <div class="hud" aria-label="Simulation statistics">
+      <div><strong>04</strong><span>LOCKED ROOMS</span></div><div><strong>12</strong><span>FORENSIC ARTIFACTS</span></div><div><strong>100</strong><span>MAX SCORE</span></div><div><strong>LOCAL</strong><span>PRIVACY BY DESIGN</span></div>
+    </div>
+    <main id="room" class="workspace" tabindex="-1">
+      <aside class="sidebar" aria-label="Vault status">
+        <div class="panel-label">01 / VAULT SECURITY STATUS</div>
+        <div class="risk-head"><span>SIMULATED REMEDIATION</span><span id="riskValue">0%</span></div>
+        <div class="risk-meter" role="progressbar" aria-label="Correctly identified remediation stages" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="riskBar"><div id="riskFill"></div></div>
+        <p class="risk-foot">Training-only progress. Not a real measure of cryptographic security.</p>
+        <div class="rail-heading">ESCAPE SEQUENCE <span id="roomCounter">01 / 04</span></div>
+        <ol id="roomList" class="room-list"></ol>
+        <div class="sidebar-score"><span class="panel-label">FIELD SCORE</span><div><strong id="score">000</strong><small>/100</small></div><p>Correct decision +25 points. Using a hint reduces that room to +20. First answer is final.</p></div>
+        <div class="side-bottom"><span class="status-dot"></span> SANDBOX MODE · NO REAL KEYS</div>
+      </aside>
+      <section class="main-panel" aria-label="Active mission">
+        <div id="activeScreen">
+          <div class="chapter-meta"><span id="roomCode">ROOM 01</span><span id="roomStage">DISCOVERY</span><span class="case-status">● ACTIVE</span></div>
+          <div class="chapter-heading"><div class="subhead">◈ ACTIVE ENCRYPTION INCIDENT</div><h2 id="roomTitle"></h2><p id="roomSubtitle"></p></div>
+          <p id="scene" class="scene"></p>
+          <div class="objective"><span>YOUR OBJECTIVE</span><p id="objective"></p></div>
+          <div class="section-heading"><div><span class="subhead">01 // EXPLORE</span><h3>EVIDENCE LOCKER</h3></div><span id="evidenceCount">0 / 3 INSPECTED</span></div>
+          <div id="evidenceList" class="evidence-grid"></div>
+          <div class="section-heading decision-title"><div><span class="subhead">02 // DECIDE</span><h3>PATCH THE PLAN</h3></div></div>
+          <p class="instruction">Which action best follows from the evidence? Inspect all three artifacts to unlock submission.</p>
+          <fieldset id="options" class="option-grid"><legend class="sr-only">Select a remediation</legend></fieldset>
+          <div class="actions"><button type="button" class="hint-button" id="hintButton">⌁ REQUEST CLUE <span>−5 IF CORRECT</span></button><button type="button" class="primary submit" id="submitButton" disabled>DEPLOY DECISION ↗</button></div>
+          <p id="hint" class="hint" hidden></p><p id="gate" class="gate" role="status" aria-live="polite"></p>
+          <section id="feedback" class="feedback" tabindex="-1" hidden><div id="feedbackLabel" class="panel-label"></div><h3 id="feedbackTitle"></h3><p id="feedbackReason"></p><div class="lesson"><span>ARCHITECT'S NOTE</span><p id="feedbackLesson"></p></div><button id="nextButton" class="primary" type="button">UNLOCK NEXT ROOM →</button></section>
+        </div>
+        <section id="completeScreen" class="completion" hidden tabindex="-1" aria-labelledby="completeTitle">
+          <span class="complete-seal">⌁</span><div class="subhead">VAULT SESSION COMPLETE // 004</div><h2 id="completeTitle">THE VAULT IS OPEN.</h2><p id="completeIntro"></p><div class="result-line"><strong id="finalScore">000</strong><span>/100</span></div><div class="rank" id="rank"></div><p id="rankDescription"></p>
+          <div class="report-preview"><span class="panel-label">MIGRATION BLUEPRINT // SIMULATED RESULTS</span><div id="reportRows"></div></div>
+          <label for="alias">DISPLAY NAME <small>OPTIONAL · EXPORTED LOCALLY</small></label><input id="alias" maxlength="32" placeholder="Anonymous Investigator" autocomplete="off" />
+          <div class="complete-actions"><button type="button" class="primary" id="downloadBadge">↓ GAME ACHIEVEMENT .SVG</button><button type="button" class="outline-button" id="downloadReport">↓ MIGRATION REPORT .JSON</button><button type="button" class="outline-button" id="share">⧉ COPY GAME LINK</button><button type="button" class="outline-button" id="restart">↻ REPLAY</button></div><p id="shareStatus" role="status" aria-live="polite"></p>
+          <p class="disclaimer">EDUCATIONAL SIMULATION. Game scores, SVG awards and JSON reports are not VOXA credentials, verified competence, validated implementations, cryptographic security guarantees, or security audits.</p>
+        </section>
+      </section>
+    </main>
+    <section class="outro"><div><span class="subhead">ACTUAL RESEARCH →</span><h2>Security is more than a cipher name.</h2><p>This challenge draws on NIST PQC guidance, but all archive details are fictional. A real transition requires inventory, implementation review, interoperability testing, and operational governance.</p><div class="sources"><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener noreferrer">NIST PQC STANDARDS ↗</a><a href="https://pages.nist.gov/nccoe-migration-post-quantum-cryptography/" target="_blank" rel="noopener noreferrer">MIGRATION GUIDANCE ↗</a><a href="https://github.com/munnamihir/cryptoscan-pqc" target="_blank" rel="noopener noreferrer">EXPLORE CRYPTOSCAN-PQC ↗</a></div></div></section>
+    <footer><span>VOXA / QUANTUM CRYPTO ESCAPE</span><span>BUILT BY <a href="https://github.com/munnamihir" target="_blank" rel="noopener noreferrer">MIHIR BOMMISETTY ↗</a></span><span>NO ACCOUNT · NO TRACKING · FICTIONAL TRAINING</span></footer>
+  </div>
+</body>
+</html>
