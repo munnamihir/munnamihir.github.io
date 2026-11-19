@@ -27,8 +27,8 @@
       <div class="hero-text">
         <div class="eyebrow"><span class="pulse-point"></span> OPERATION: TRACE <span class="minor">// CASE FILES ONLINE</span></div>
         <h1 id="hero-title">DON'T TRUST THE CLAIM.<br /><em>TRACE THE EVIDENCE.</em></h1>
-        <p>A four-mission investigation into AI performance, release provenance, software security, and contextual trust. Read the artifacts. Make the call. Defend your reasoning.</p>
-        <a class="primary hero-cta" href="#play">BEGIN INVESTIGATION <span aria-hidden="true">↘</span></a>
+        <p>Choose from the original four, a rotating daily challenge, or an expert investigation. Open the evidence. Make a verdict. Defend your reasoning.</p>
+        <a class="primary hero-cta" href="#modes">CHOOSE YOUR MISSION <span aria-hidden="true">↘</span></a>
         <div class="disclaimer-tag">SIMULATED CASES · NO LOGIN · NO TRUST SCORES</div>
       </div>
       <div class="scope-panel" aria-hidden="true">
@@ -44,18 +44,30 @@
     </section>
 
     <div class="metric-strip" aria-label="Game details">
-      <div><span class="metric-value">04</span><span class="metric-label">INVESTIGATIONS</span></div>
-      <div><span class="metric-value">12</span><span class="metric-label">EVIDENCE ARTIFACTS</span></div>
-      <div><span class="metric-value">100</span><span class="metric-label">MAX POINTS</span></div>
-      <div><span class="metric-value mint">LOCAL</span><span class="metric-label">NO ACCOUNT / NO TRACKING</span></div>
+      <div><span class="metric-value" id="metricCases">04</span><span class="metric-label">INVESTIGATIONS</span></div>
+      <div><span class="metric-value" id="metricEvidence">12</span><span class="metric-label">EVIDENCE ARTIFACTS</span></div>
+      <div><span class="metric-value" id="metricMax">100</span><span class="metric-label">MAX POINTS</span></div>
+      <div><span class="metric-value mint">LOCAL</span><span class="metric-label">NO ACCOUNT / LOCAL RECORD</span></div>
     </div>
+
+
+    <section class="mode-hub" id="modes" aria-labelledby="modesTitle">
+      <div class="mode-heading"><div><div class="smallcaps accent">CHALLENGE SELECTOR // THREE PROTOCOLS</div><h2 id="modesTitle">Choose your mission.</h2><p>Each clue is fictional and inspectable. Choose your investigation route.</p></div><span class="mode-command">$ voxa quest --select</span></div>
+      <div class="mode-grid" role="group" aria-label="Challenge mode">
+        <button type="button" class="mode-card" data-mode="classic" aria-pressed="true"><span class="mode-top">01 / CORE <span>↗</span></span><strong>ORIGINAL FOUR</strong><small>4 foundational cases · 100 possible points</small><span class="mode-bottom">THE FOUNDATIONS</span></button>
+        <button type="button" class="mode-card" data-mode="daily" aria-pressed="false"><span class="mode-top">02 / DAILY <span>↗</span></span><strong>DAILY EVIDENCE DROP</strong><small>3 rotating cases · 75 possible points</small><span class="mode-bottom">NEW SET EACH UTC DAY</span></button>
+        <button type="button" class="mode-card" data-mode="expert" aria-pressed="false"><span class="mode-top">03 / EXPERT <span>↗</span></span><strong>DEEP INVESTIGATION</strong><small>6 layered cases · 150 possible points</small><span class="mode-bottom">ADVANCED ENGINEERING</span></button>
+      </div>
+      <div class="mode-status"><span class="mode-led" aria-hidden="true"></span><span id="modeStatus" role="status" aria-live="polite">CORE PROTOCOL READY</span><span id="localRecord" class="local-record">LOCAL RUNS: 0</span></div>
+      <p class="mode-privacy">Daily challenges rotate by UTC date and have shareable question-set codes. Up to 30 completed runs can be stored on this device only. No leaderboard or verified score claims.</p>
+    </section>
 
     <main id="play" class="game-layout" tabindex="-1">
       <aside class="side-panel" aria-label="Investigation progress">
         <div class="aside-header"><div class="smallcaps">INVESTIGATION STATUS</div><span class="progress-code" id="progressCode">01 / 04</span></div>
         <div class="progress-track" aria-hidden="true"><div id="progressFill"></div></div>
         <ol id="missionList" class="mission-list"></ol>
-        <div class="score-panel"><span class="smallcaps">FIELD SCORE</span><div class="score-value"><strong id="scoreNumber">000</strong><span>/ 100</span></div><p>Correct verdicts earn 25 points; using a hint reduces that case to 20.</p></div>
+        <div class="score-panel"><span class="smallcaps">FIELD SCORE</span><div class="score-value"><strong id="scoreNumber">000</strong><span id="scoreMax">/ 100</span></div><p>Correct verdicts earn 25 points; using a hint reduces that case to 20.</p></div>
         <details class="mission-rules"><summary>▸ Investigation protocol</summary><p>Open all three evidence artifacts, then select a verdict. Each case is scored on your first submission. Hints are optional. All scenarios are fictional learning exercises.</p></details>
       </aside>
 
@@ -78,8 +90,8 @@
           <div class="smallcaps accent">INVESTIGATION COMPLETE // ALL CASES REVIEWED</div>
           <h2 id="completeTitle">CASE FILE CLOSED.</h2>
           <p id="completeSummary"></p>
-          <div class="result-score"><strong id="finalScore">000</strong><span> / 100</span></div>
-          <div class="rank-label" id="rankLabel"></div><p id="rankDescription"></p>
+          <div class="result-score"><strong id="finalScore">000</strong><span id="finalMax"> / 100</span></div>
+          <div class="rank-label" id="rankLabel"></div><p id="rankDescription"></p><p class="completion-mode" id="completionMode"></p><details class="debrief"><summary>↳ OPEN CASE-BY-CASE DEBRIEF</summary><ol id="debriefList"></ol></details>
           <div class="alias-control"><label for="aliasInput">YOUR DISPLAY NAME <span>(OPTIONAL · LOCAL TO THIS PAGE)</span></label><input id="aliasInput" maxlength="32" autocomplete="off" placeholder="Anonymous Investigator" /></div>
           <div class="end-actions"><button id="downloadBadge" type="button" class="primary">↓ DOWNLOAD GAME BADGE (SVG)</button><button id="shareResult" type="button" class="secondary">↗ COPY CHALLENGE LINK</button><button id="restartButton" type="button" class="secondary">↺ REPLAY</button></div>
           <p id="copyStatus" class="copy-status" aria-live="polite"></p>
