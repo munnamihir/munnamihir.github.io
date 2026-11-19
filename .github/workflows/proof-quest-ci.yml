@@ -1,0 +1,31 @@
+name: Proof Quest quality checks
+on:
+  pull_request:
+    paths:
+      - 'voxa-studio/proof-quest/**'
+      - 'voxa-studio/index.html'
+      - 'test/quest-core.test.js'
+      - '.github/workflows/proof-quest-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'voxa-studio/proof-quest/**'
+      - 'voxa-studio/index.html'
+      - 'test/quest-core.test.js'
+      - '.github/workflows/proof-quest-ci.yml'
+permissions:
+  contents: read
+jobs:
+  game-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax
+        run: |
+          node --check voxa-studio/proof-quest/quest-core.js
+          node --check voxa-studio/proof-quest/app.js
+      - name: Engine and scoring tests
+        run: node --test test/quest-core.test.js
