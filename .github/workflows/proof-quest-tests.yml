@@ -1,0 +1,22 @@
+name: Proof Quest unit tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'voxa-studio/proof-quest/**'
+      - 'test/quest-core.test.js'
+  pull_request:
+    paths:
+      - 'voxa-studio/proof-quest/**'
+      - 'test/quest-core.test.js'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test test/quest-core.test.js
